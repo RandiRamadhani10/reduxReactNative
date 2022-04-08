@@ -23,9 +23,9 @@ const Login = ({navigation}) => {
     dispatch(getLogin(data));
   };
   const validateLogin = () => {
-    logins.isLogin
-      ? navigation.navigate('Home')
-      : Alert.alert('Password dan Email salah');
+    console.log(logins.isMsg);
+    logins.isLogin && navigation.replace('Home');
+    logins.isMsg && Alert.alert('Email dan Password salah');
   };
   useEffect(() => {
     validateLogin();

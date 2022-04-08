@@ -6,6 +6,8 @@ export const detailBookSlice = createSlice({
   initialState: {
     data: [],
     isLoading: false,
+    isMsg: false,
+    msg: '',
   },
   extraReducers: {
     [getDetailBook.pending]: state => {
@@ -14,11 +16,15 @@ export const detailBookSlice = createSlice({
     },
     [getDetailBook.fulfilled]: (state, action) => {
       console.log('done');
-      return {...state, data: action.payload, isLoading: false};
+      return {...state, data: action.payload, isLoading: false, isMsg: false};
     },
     [getDetailBook.rejected]: (state, action) => {
-      console.log('reject');
-      return {...state, isLoading: false};
+      return {
+        ...state,
+        isLoading: false,
+        isMsg: true,
+        msg: action.payload.message,
+      };
     },
   },
 });

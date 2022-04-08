@@ -7,6 +7,7 @@ export const loginSlice = createSlice({
     password: '',
     token: null,
     isLogin: false,
+    isMsg: false,
   },
   reducers: {
     setLogin: (state, action) => {
@@ -24,12 +25,14 @@ export const loginSlice = createSlice({
         password: action.payload.password,
         token: action.payload.token.tokens.access.token,
         isLogin: true,
+        isMsg: false,
       };
     },
     [getLogin.rejected]: state => {
+      console.log('reject');
       return {
         ...state,
-        isLogin: false,
+        isMsg: true,
       };
     },
   },

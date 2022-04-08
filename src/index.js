@@ -7,6 +7,7 @@ import Login from './screens/Login/login';
 import Register from './screens/Register/register';
 import Detailbook from './screens/DetailBook/detailBook';
 import Detailregister from './screens/Register/detailRegister';
+import Splash from './screens/Splash/splash';
 const Stack = createNativeStackNavigator();
 const Index = () => {
   return (
@@ -27,8 +28,9 @@ const Index = () => {
           />
           <Stack.Navigator
             screenOptions={{headerShown: false}}
-            initialRouteName="Login">
+            initialRouteName="Splash">
             <Stack.Screen name="DetailRegister" component={Detailregister} />
+            <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Register" component={Register} />

@@ -5,6 +5,8 @@ export const homeSlice = createSlice({
   initialState: {
     data: [],
     isLoading: false,
+    isMsg: false,
+    msg: '',
   },
   extraReducers: {
     [getBooks.pending]: state => {
@@ -13,10 +15,20 @@ export const homeSlice = createSlice({
     },
     [getBooks.fulfilled]: (state, action) => {
       console.log(action.payload);
-      return {...state, data: action.payload.results, isLoading: false};
+      return {
+        ...state,
+        data: action.payload.results,
+        isLoading: false,
+        isMsg: false,
+      };
     },
     [getBooks.rejected]: (state, action) => {
-      return {...state, isLoading: false};
+      return {
+        ...state,
+        isLoading: false,
+        isMsg: true,
+        msg: action.payload.message,
+      };
     },
   },
 });

@@ -9,16 +9,28 @@ import {
   Dimensions,
   Image,
   ActivityIndicator,
+  RefreshControl,
+  Alert,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icons from 'react-native-vector-icons/Ionicons';
 import getBooks from '../../data/redux/screens/Home/action';
+
 const screen = Dimensions.get('screen');
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
+
 const Home = ({navigation}) => {
   const logins = useSelector(state => state.login);
   const books = useSelector(state => state.book);
 
   const [newBook, setNewBook] = useState([]);
+  const [refreshing, setRefreshing] = React.useState(false);
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks(logins.token));
@@ -37,11 +49,16 @@ const Home = ({navigation}) => {
   }, [books.data]);
   return (
     <>
+      {books.isMsg && Alert.alert(books.msg)}
       {books.isLoading ? <Loading /> : <></>}
       <View style={styles.header}>
         <Text style={styles.text}>Hai Randi</Text>
       </View>
-      <ScrollView style={styles.scroll}>
+      <ScrollView
+        style={styles.scroll}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <Text style={{marginHorizontal: 20, fontSize: 20}}>Recommended</Text>
         <ScrollView horizontal={true}>
           {newBook.map(book => {

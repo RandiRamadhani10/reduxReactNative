@@ -19,6 +19,8 @@ target 'bookAppRedux' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
   target 'bookAppReduxTests' do
     inherit! :complete
     # Pods for testing

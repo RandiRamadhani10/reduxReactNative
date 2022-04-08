@@ -9,10 +9,13 @@ import {
   ScrollView,
   Image,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useSelector, useDispatch} from 'react-redux';
 import getDetailBook from '../../data/redux/screens/detailBook/action';
+import notification from '../../data/service/notif';
+import Share from 'react-native-share';
 const Detailbook = props => {
   const logins = useSelector(state => state.login);
   const navigation = props.navigation;
@@ -24,12 +27,27 @@ const Detailbook = props => {
     let rupiah = data.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.');
     return `Rp${rupiah}`;
   };
+  const shareLink = () => {
+    const shareOptions = {
+      title: 'Share via',
+      message: 'Link :',
+      url: book.data.cover_image,
+    };
+    Share.open(shareOptions)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        err && console.log(err);
+      });
+  };
   useEffect(() => {
     const data = {token: logins.token, id: id};
     dispatch(getDetailBook(data));
   }, []);
   return (
     <>
+      {book.isMsg && Alert.alert(book.msg)}
       <ScrollView style={styles.scroll}>
         {book.isLoading ? <Loading /> : <></>}
 
@@ -41,10 +59,22 @@ const Detailbook = props => {
             <Icon name="chevron-back-sharp" size={30} />
           </TouchableOpacity>
           <View style={styles.headerDetail}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                notification.configure();
+                notification.createChannel('1');
+                notification.sendNotif(
+                  '1',
+                  'Gedebook',
+                  `anda menyukai ${book.data.title}`,
+                );
+              }}>
               <Icon name="heart-circle" size={30} style={{marginRight: 10}} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                shareLink();
+              }}>
               <Icon name="share-social" size={30} />
             </TouchableOpacity>
           </View>
