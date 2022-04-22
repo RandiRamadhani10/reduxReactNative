@@ -10,8 +10,8 @@ export const loginSlice = createSlice({
     isMsg: false,
   },
   reducers: {
-    setLogin: (state, action) => {
-      console.log(state);
+    setLogin: state => {
+      return {...state, isLogin: false};
     },
   },
   extraReducers: {
@@ -33,6 +33,7 @@ export const loginSlice = createSlice({
       return {
         ...state,
         isMsg: true,
+        isLogin: true,
       };
     },
   },

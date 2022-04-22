@@ -18,18 +18,19 @@ const Login = ({navigation}) => {
   const logins = useSelector(state => state.login);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const runLogin = () => {
-    const data = {email: email, password: password};
+  const runLogin = (dataEmail, dataPassword) => {
+    const data = {email: dataEmail, password: dataPassword};
     dispatch(getLogin(data));
-  };
-  const validateLogin = () => {
-    console.log(logins.isMsg);
     logins.isLogin && navigation.replace('Home');
     logins.isMsg && Alert.alert('Email dan Password salah');
   };
-  useEffect(() => {
-    validateLogin();
-  }, [logins]);
+  // const validateLogin = () => {
+  //   logins.isLogin && navigation.replace('Home');
+  //   logins.isMsg && Alert.alert('Email dan Password salah');
+  // };
+  // useEffect(() => {
+  //   validateLogin();
+  // }, [logins]);
   return (
     <View style={styles.parent}>
       <Image
@@ -40,6 +41,7 @@ const Login = ({navigation}) => {
       <KeyboardAvoidingView
         style={{width: screen.width * 0.8, alignItems: 'center'}}>
         <TextInput
+          testID="email-input"
           style={styles.input}
           onChangeText={setEmail}
           value={email}
@@ -47,6 +49,7 @@ const Login = ({navigation}) => {
           keyboardType="default"
         />
         <TextInput
+          testID="password-input"
           style={styles.input}
           onChangeText={setPassword}
           value={password}
@@ -55,9 +58,10 @@ const Login = ({navigation}) => {
           keyboardType="default"
         />
         <TouchableOpacity
+          testID="button-login"
           style={styles.btn}
           onPress={() => {
-            runLogin();
+            runLogin(email, password);
           }}>
           <Text style={{color: 'white', fontSize: 20}}>Login</Text>
         </TouchableOpacity>

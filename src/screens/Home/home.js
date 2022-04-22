@@ -15,7 +15,6 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import Icons from 'react-native-vector-icons/Ionicons';
 import getBooks from '../../data/redux/screens/Home/action';
-
 const screen = Dimensions.get('screen');
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -31,6 +30,7 @@ const Home = ({navigation}) => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
   }, []);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks(logins.token));
@@ -47,9 +47,17 @@ const Home = ({navigation}) => {
     });
     setNewBook(sorted);
   }, [books.data]);
+
   return (
     <>
-      {books.isMsg && Alert.alert(books.msg)}
+      {books.isMsg && Alert.alert()}
+      {books.isMsg &&
+        Alert.alert('error', 'books.msg', [
+          {
+            text: 'OK',
+            onPress: () => navigation.navigate('Login'),
+          },
+        ])}
       {books.isLoading ? <Loading /> : <></>}
       <View style={styles.header}>
         <Text style={styles.text}>Hai Randi</Text>

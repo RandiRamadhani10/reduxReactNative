@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render login screen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/logoGedebook.png",
+      }
+    }
+    style={
+      Object {
+        "height": 525,
+        "width": 525,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 20,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    LOGIN
+  </Text>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "width": 600,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Email"
+      style={
+        Object {
+          "borderWidth": 1,
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      testID="email-input"
+    />
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderWidth": 1,
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      testID="password-input"
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "black",
+          "borderRadius": 30,
+          "margin": 5,
+          "opacity": 1,
+          "padding": 10,
+          "width": 225,
+        }
+      }
+      testID="button-login"
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+          }
+        }
+      >
+        Login
+      </Text>
+    </View>
+  </View>
+  <Text
+    style={
+      Object {
+        "marginTop": 30,
+      }
+    }
+  >
+    Dont have account ?
+  </Text>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Register
+    </Text>
+  </View>
+</View>
+`;
