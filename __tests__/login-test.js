@@ -1,9 +1,7 @@
 import 'react-native';
 import React from 'react';
-import {connectAdvanced, useSelector} from 'react-redux';
 import Login from '../src/screens/Login/login';
 import {render, fireEvent, act} from '@testing-library/react-native';
-import {miniSerializeError} from '@reduxjs/toolkit';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(() => jest.fn()),
@@ -21,14 +19,19 @@ describe('render login screen', () => {
   });
 });
 
-describe('getButton', () => {
-  // const data = {email: 'aaa@mail.com', password: 'sangat rahasia'};
+describe('getButton Login', () => {
   it('button onClick', () => {
-    // const onPressMock = jest.fn();
     const {getByTestId, getAllByA11yStates} = render(<Login />);
+    const email = 'aldialdi@gmail.com';
+    const password = 'pisangisbanana2021';
+    const emailButton = getByTestId('email-input');
+    const passwordButton = getByTestId('password-input');
     const element = getByTestId('button-login');
-    // act(() => fireEvent.press(element));
-    // expect(element.props.onClick).toHaveBeenCalledTimes(1);
-    expect(fireEvent.press(element));
+
+    fireEvent.changeText(emailButton, email);
+    expect(emailButton.props.value).toBe(email);
+    fireEvent.changeText(passwordButton, password);
+    expect(passwordButton.props.value).toBe(password);
+    fireEvent.press(element);
   });
 });

@@ -15,6 +15,7 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import Icons from 'react-native-vector-icons/Ionicons';
 import getBooks from '../../data/redux/screens/Home/action';
+import YoutubePlayer from 'react-native-youtube-iframe';
 const screen = Dimensions.get('screen');
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -67,6 +68,14 @@ const Home = ({navigation}) => {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
+        <View style={{width: '100%', padding: 5}}>
+          <YoutubePlayer
+            height={300}
+            // play={playing}
+            videoId={'m1mpecQfLrw'}
+            // onChangeState={onStateChange}
+          />
+        </View>
         <Text style={{marginHorizontal: 20, fontSize: 20}}>Recommended</Text>
         <ScrollView horizontal={true}>
           {newBook.map(book => {

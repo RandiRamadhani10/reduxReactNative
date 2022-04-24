@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render register screen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/logoGedebook.png",
+      }
+    }
+    style={
+      Object {
+        "height": 225,
+        "width": 225,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 20,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    REGISTER
+  </Text>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "width": 600,
+      }
+    }
+  >
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="FullName"
+      style={
+        Object {
+          "borderWidth": 1,
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      testID="fullname-input"
+    />
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Email"
+      style={
+        Object {
+          "borderWidth": 1,
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      testID="email-input"
+    />
+    <TextInput
+      keyboardType="default"
+      onChangeText={[Function]}
+      placeholder="Password"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderWidth": 1,
+          "height": 40,
+          "margin": 12,
+          "padding": 10,
+          "width": "100%",
+        }
+      }
+      testID="password-input"
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "black",
+          "borderRadius": 30,
+          "margin": 5,
+          "opacity": 1,
+          "padding": 10,
+          "width": 225,
+        }
+      }
+      testID="button-register"
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+          }
+        }
+      >
+        Register
+      </Text>
+    </View>
+  </View>
+  <Text
+    style={
+      Object {
+        "marginTop": 30,
+      }
+    }
+  >
+    Already have account ?
+  </Text>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 20,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Login
+    </Text>
+  </View>
+</View>
+`;

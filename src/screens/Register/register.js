@@ -41,6 +41,7 @@ const Register = ({navigation}) => {
       <KeyboardAvoidingView
         style={{width: screen.width * 0.8, alignItems: 'center'}}>
         <TextInput
+          testID="fullname-input"
           style={styles.input}
           onChangeText={setName}
           value={name}
@@ -48,6 +49,7 @@ const Register = ({navigation}) => {
           keyboardType="default"
         />
         <TextInput
+          testID="email-input"
           style={styles.input}
           onChangeText={setEmail}
           value={email}
@@ -55,6 +57,7 @@ const Register = ({navigation}) => {
           keyboardType="default"
         />
         <TextInput
+          testID="password-input"
           style={styles.input}
           onChangeText={setPassword}
           value={password}
@@ -62,7 +65,10 @@ const Register = ({navigation}) => {
           placeholder="Password"
           keyboardType="default"
         />
-        <TouchableOpacity style={styles.btn} onPress={regis}>
+        <TouchableOpacity
+          testID="button-register"
+          style={styles.btn}
+          onPress={regis}>
           <Text style={{color: 'white', fontSize: 20}}>Register</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
